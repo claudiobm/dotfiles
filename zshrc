@@ -33,6 +33,8 @@ plugins=(git bundler brew gem ruby github rvm rails)
 
 source $ZSH/oh-my-zsh.sh
 
+[ -f /etc/hosts ] && source ./custom_bashrc
+
 export LANGUAGE=pt_BR.UTF-8
 export LANG=pt_BR.UTF-8
 export LC_ALL=pt_BR.UTF-8
