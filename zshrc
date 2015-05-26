@@ -72,3 +72,4 @@ alias tree= git log --graph --pretty=oneline
 alias  lg= git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
 alias mongostart='mongod --config /usr/local/etc/mongod.conf'
+alias flushmemcache='echo 'flush_all' | nc localhost 11211'
