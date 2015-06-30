@@ -60,6 +60,9 @@ PATH=$PATH:/usr/bin/adt-bundle-mac/tools
 PATH=$PATH:/usr/bin/adt-bundle-mac/platform-tools
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 alias subl='reattach-to-user-namespace subl'
 alias stree='reattach-to-user-namespace stree'
 alias open='reattach-to-user-namespace open'
