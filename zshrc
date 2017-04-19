@@ -33,8 +33,6 @@ plugins=(git bundler brew gem ruby github rvm rails)
 
 source $ZSH/oh-my-zsh.sh
 
-[ -f ~/.custom_bashrc ] && source ~/.custom_bashrc
-
 export LANGUAGE=pt_BR.UTF-8
 export LANG=pt_BR.UTF-8
 export LC_ALL=pt_BR.UTF-8
@@ -82,3 +80,5 @@ alias  lg= git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d
 
 alias mongostart='mongod --config /usr/local/etc/mongod.conf'
 alias flushmemcache='echo 'flush_all' | nc localhost 11211'
+
+[ -f ~/.custom_bashrc ] && source ~/.custom_bashrc
