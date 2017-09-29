@@ -58,6 +58,9 @@ PATH=$PATH:/usr/bin/adt-bundle-mac/tools
 PATH=$PATH:/usr/bin/adt-bundle-mac/platform-tools
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+export ANDROID_SDK_ROOT=~/Library/Android/sdk/
+export ANDROID_HOME=~/Library/Android/sdk/
+
 #export PATH="$HOME/.rbenv/bin:$PATH"
 #if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
@@ -80,5 +83,7 @@ alias  lg= git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d
 
 alias mongostart='mongod --config /usr/local/etc/mongod.conf'
 alias flushmemcache='echo 'flush_all' | nc localhost 11211'
+
+source $HOME/.rvm/scripts/rvm
 
 [ -f ~/.custom_bashrc ] && source ~/.custom_bashrc
