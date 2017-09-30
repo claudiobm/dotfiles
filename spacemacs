@@ -32,6 +32,7 @@ values."
    dotspacemacs-configuration-layers
    '(
      ruby
+     ruby-on-rails
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -42,7 +43,7 @@ values."
      ;; better-defaults
      emacs-lisp
      git
-     ;; markdown
+     markdown
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -55,7 +56,11 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages
+   '(
+     yaml-mode
+     rspec-mode
+     )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -133,8 +138,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+   dotspacemacs-default-font '("Monaco"
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -260,7 +265,7 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'origami
@@ -333,6 +338,7 @@ you should place your code here."
     (yank)
     )
   (global-set-key (kbd "M-p d") 'duplicate-line)
+  (global-set-key (kbd "s-d") 'duplicate-line)
 
   ;; Delete line binding
   (defun kill-current-line()
@@ -351,21 +357,39 @@ you should place your code here."
     (yank)
     )
   (global-set-key (kbd "M-p l c") 'copy-current-line)
+  (global-set-key (kbd "s-C") 'copy-current-line)
 
-  ;; Default bindinds
+  ;; Default bindings
   (global-set-key (kbd "M-p f k") 'kill-buffer)
   (global-set-key (kbd "M-p f s") 'save-buffer)
   (global-set-key (kbd "M-p f o") 'helm-find-files)
+  (global-set-key (kbd "M-p f r") 'recentf-open-files)
+  (global-set-key (kbd "s-r") 'recentf-open-files)
   (global-set-key (kbd "M-p RET") 'eval-defun)
+  (global-set-key (kbd "<s-return>") 'eval-defun)
   (global-set-key (kbd "M-p TAB") 'helm-buffers-list)
   (global-set-key (kbd "M-z") 'undo)
   (global-set-key (kbd "M-Z") 'redo)
   (global-set-key (kbd "M-y") 'yank)
+  (global-set-key (kbd "s-g") 'isearch-repeat-backward)
 
-  ;; Projectile bindinds
+  ;; Buffers and Windows bindings
+  (global-set-key (kbd "M-p b b") 'helm-buffers-list)
+  (global-set-key (kbd "M-p b k") 'kill-buffer)
+  (global-set-key (kbd "s-w") 'kill-buffer)
+  (global-set-key (kbd "M-p b s") 'save-buffer)
+  (global-set-key (kbd "M-p w q") 'delete-window)
+  (global-set-key (kbd "M-p w m") 'maximize-window)
+
+  ;; Projectile bindings
   (global-set-key (kbd "M-p p p") 'projectile-switch-project)
+  (global-set-key (kbd "s-p") 'projectile-switch-project)
   (global-set-key (kbd "M-p p f") 'helm-projectile-find-file)
+  (global-set-key (kbd "s-t") 'helm-projectile-find-file)
   (global-set-key (kbd "M-p p d") 'helm-projectile-find-dir)
+
+  ;; Rspec bindings
+  (global-set-key (kbd "s-.") 'rspec-toggle-spec-and-target)
 
   )
 
@@ -378,7 +402,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby origami ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (yaml-mode projectile-rails markdown-toc inflections mmm-mode markdown-mode gh-md feature-mode xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby origami ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
