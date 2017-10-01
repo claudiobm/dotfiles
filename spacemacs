@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     html
      ruby
      ruby-on-rails
      ;; ----------------------------------------------------------------
@@ -375,11 +376,16 @@ you should place your code here."
 
   ;; Buffers and Windows bindings
   (global-set-key (kbd "M-p b b") 'helm-buffers-list)
+  (global-set-key (kbd "s-b") 'helm-buffers-list)
   (global-set-key (kbd "M-p b k") 'kill-buffer)
-  (global-set-key (kbd "s-w") 'kill-buffer)
+  (global-set-key (kbd "s-W") 'kill-buffer)
   (global-set-key (kbd "M-p b s") 'save-buffer)
   (global-set-key (kbd "M-p w q") 'delete-window)
+  (global-set-key (kbd "s-w") 'delete-window)
   (global-set-key (kbd "M-p w m") 'maximize-window)
+  (global-set-key (kbd "M-p w |") 'split-window-right-and-focus)
+  (global-set-key (kbd "s-|") 'split-window-right-and-focus)
+  (global-set-key (kbd "M-p w _") 'split-window-horizontally)
 
   ;; Projectile bindings
   (global-set-key (kbd "M-p p p") 'projectile-switch-project)
@@ -390,6 +396,7 @@ you should place your code here."
 
   ;; Rspec bindings
   (global-set-key (kbd "s-.") 'rspec-toggle-spec-and-target)
+  (global-set-key (kbd "M-p s t") 'rspec-toggle-spec-and-target)
 
   )
 
@@ -402,7 +409,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yaml-mode projectile-rails markdown-toc inflections mmm-mode markdown-mode gh-md feature-mode xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby origami ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode yaml-mode projectile-rails markdown-toc inflections mmm-mode markdown-mode gh-md feature-mode xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby origami ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
