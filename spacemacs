@@ -318,6 +318,14 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (require 'helm-bookmark)
 
+  ;;Rspec Config
+  (require 'rspec-mode)
+  (setq rspec-use-rvm t)
+
+  ;; Tab-width
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 4)
+
   ;; Origami fold bindings
   (global-set-key (kbd "M-p o a t") 'origami-toggle-all-nodes)
   (global-set-key (kbd "M-p o a c") 'origami-close-all-nodes)
@@ -373,6 +381,7 @@ you should place your code here."
   (global-set-key (kbd "M-Z") 'redo)
   (global-set-key (kbd "M-y") 'yank)
   (global-set-key (kbd "s-g") 'isearch-repeat-backward)
+  (global-set-key (kbd "s-x") 'kill-region)
 
   ;; Buffers and Windows bindings
   (global-set-key (kbd "M-p b b") 'helm-buffers-list)
@@ -382,10 +391,21 @@ you should place your code here."
   (global-set-key (kbd "M-p b s") 'save-buffer)
   (global-set-key (kbd "M-p w q") 'delete-window)
   (global-set-key (kbd "s-w") 'delete-window)
-  (global-set-key (kbd "M-p w m") 'maximize-window)
+  (global-set-key (kbd "M-p w m") 'spacemacs/toggle-maximize-buffer)
+  (global-set-key (kbd "M-p w w") 'other-window)
+  (global-set-key (kbd "s-X") 'spacemacs/toggle-maximize-buffer)
   (global-set-key (kbd "M-p w |") 'split-window-right-and-focus)
   (global-set-key (kbd "s-|") 'split-window-right-and-focus)
   (global-set-key (kbd "M-p w _") 'split-window-horizontally)
+  (global-set-key (kbd "C-x <up>") 'windmove-up)
+  (global-set-key (kbd "<s-up>") 'windmove-up)
+  (global-set-key (kbd "C-x <down>") 'windmove-down)
+  (global-set-key (kbd "<s-down>") 'windmove-down)
+  (global-set-key (kbd "C-x <left>") 'windmove-left)
+  (global-set-key (kbd "<s-left>") 'windmove-left)
+  (global-set-key (kbd "C-x <right>") 'windmove-right)
+  (global-set-key (kbd "<s-right>") 'windmove-right)
+  (global-set-key (kbd "<C-tab>") 'next-buffer)
 
   ;; Projectile bindings
   (global-set-key (kbd "M-p p p") 'projectile-switch-project)
