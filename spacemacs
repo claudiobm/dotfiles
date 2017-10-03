@@ -332,12 +332,26 @@ you should place your code here."
   (setq-default tab-width 2)
   (setq select-enable-clipboard t)
 
-  ;; Mult-term
+  ;; Multi-term
   (defcustom term-unbind-key-list
     '("C-z" "C-x" "C-c" "C-h" "C-y" "<ESC>")
     "The key list that will need to be unbind."
     :type 'list
     :group 'multi-term)
+
+  ;; Copy full path
+  (defun copy-full-path()
+    "Put the current file name on the clipboard"
+    (interactive)
+    (let ((filename (if (equal major-mode 'dired-mode)
+                        default-directory
+                      (buffer-file-name))))
+      (when filename
+        (with-temp-buffer
+          (insert filename)
+          (clipboard-kill-region (point-min) (point-max)))
+        (message filename))))
+  (global-set-key (kbd "M-p c p") 'copy-full-path)
 
   ;; Origami fold bindings
   (global-set-key (kbd "M-p o a t") 'origami-toggle-all-nodes)
