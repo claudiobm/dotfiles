@@ -383,6 +383,7 @@ you should place your code here."
   (global-set-key (kbd "M-p f o") 'helm-find-files)
   (global-set-key (kbd "M-p f r") 'recentf-open-files)
   (global-set-key (kbd "M-p f n") 'crux-rename-file-and-buffer)
+  (global-set-key (kbd "M-p f d") 'crux-delete-file-and-buffer)
   (global-set-key (kbd "s-r") 'recentf-open-files)
   (global-set-key (kbd "M-p RET") 'eval-defun)
   (global-set-key (kbd "<s-return>") 'eval-defun)
