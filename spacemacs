@@ -407,6 +407,8 @@ you should place your code here."
   (global-set-key (kbd "<C-return>") 'crux-smart-open-line)
   (global-set-key (kbd "<s-backspace>") 'crux-kill-line-backwards)
   (global-set-key (kbd "M-=") 'crux-indent-defun)
+  (global-set-key (kbd "<M-up>") 'move-text-up)
+  (global-set-key (kbd "<M-down>") 'move-text-down)
 
   ;; Buffers and Windows bindings
   (global-set-key (kbd "M-p b b") 'helm-buffers-list)
