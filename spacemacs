@@ -51,8 +51,8 @@ values."
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
-     ;; syntax-checking
-     ;; version-control
+     syntax-checking
+     version-control
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -301,7 +301,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'trailing
    ))
 
 (defun dotspacemacs/user-init ()
@@ -333,6 +333,10 @@ you should place your code here."
   ;; Ruby
   (require 'ruby-tools)
   (require 'ruby-refactor)
+
+  ;; RVM
+  (require 'rvm)
+  (rvm-use-default)
 
   ;; Rspec Config
   (require 'rspec-mode)
@@ -406,7 +410,7 @@ you should place your code here."
   (global-set-key (kbd "<end>") 'move-end-of-line)
   (global-set-key (kbd "<home>") 'move-beginning-of-line)
   (global-set-key (kbd "<M-home>") 'beginning-of-buffer)
-  (global-set-key (kbd "M-p d") 'crux-duplicate-current-line-or-region)
+  (global-set-key (kbd "M-p l d") 'crux-duplicate-current-line-or-region)
   (global-set-key (kbd "s-d") 'crux-duplicate-current-line-or-region)
   (global-set-key (kbd "M-p l k") 'crux-kill-whole-line)
   (global-set-key (kbd "<C-return>") 'crux-smart-open-line)
@@ -440,6 +444,7 @@ you should place your code here."
   (global-set-key (kbd "M-]") 'next-buffer)
   (global-set-key (kbd "M-[") 'previous-buffer)
   (global-set-key (kbd "M-p b i") 'crux-swap-windows)
+  (global-set-key (kbd "M-p g d") 'spacemacs/jump-to-definition)
 
   ;; Projectile bindings
   (global-set-key (kbd "M-p p p") 'projectile-switch-project)
@@ -449,16 +454,21 @@ you should place your code here."
   (global-set-key (kbd "M-p p b") 'helm-projectile-switch-to-buffer)
   (global-set-key (kbd "s-B") 'helm-projectile-switch-to-buffer)
   (global-set-key (kbd "M-p p d") 'helm-projectile-find-dir)
+  (global-set-key (kbd "M-p p k") 'projectile-kill-buffers)
 
   ;; Rspec bindings
   (global-set-key (kbd "s-.") 'rspec-find-spec-or-target-other-window)
   (global-set-key (kbd "M-p s t") 'rspec-find-spec-or-target-other-window)
   (global-set-key (kbd "M-p s s") 'rspec-verify)
   (global-set-key (kbd "M-p s a") 'rspec-verify-all)
+  (global-set-key (kbd "M-p s .") 'rspec-verify-single)
 
   ;; Rubocop bindings
   (global-set-key (kbd "M-p r s") 'rubocop-check-current-file)
   (global-set-key (kbd "M-p r a") 'rubocop-check-project)
+
+  ;; Magit bindings
+  (global-set-key (kbd "M-p g F") 'magit-pull-popup)
 
   )
 
