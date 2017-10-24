@@ -341,6 +341,8 @@ you should place your code here."
   ;; Rspec Config
   (require 'rspec-mode)
   (setq rspec-use-rvm t)
+  (eval-after-load 'rspec-mode
+    '(rspec-install-snippets))
 
   ;; Tab-width
   (setq-default tab-width 2)
@@ -418,6 +420,9 @@ you should place your code here."
   (global-set-key (kbd "M-=") 'crux-indent-defun)
   (global-set-key (kbd "<M-up>") 'move-text-up)
   (global-set-key (kbd "<M-down>") 'move-text-down)
+
+  ;; Yas
+  (global-set-key (kbd "<C-tab>") 'yas/expand)
 
   ;; Buffers and Windows bindings
   (global-set-key (kbd "M-p b b") 'helm-buffers-list)
