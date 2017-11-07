@@ -51,15 +51,15 @@ export RUBY_GC_OLDMALLOC_LIMIT_MAX=138788702
 export RUBY_GC_OLDMALLOC_LIMIT_GROWTH_FACTOR=1.4
 
 # Customize to your needs...
-export PATH=/src/local/:~/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/bin/android-sdk/tools:~/bin
+export PATH=/src/local/:$HOME/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/bin/android-sdk/tools:$HOME/bin
 
 PATH=$PATH:/usr/local/share/npm/bin
 PATH=$PATH:/usr/bin/adt-bundle-mac/tools
 PATH=$PATH:/usr/bin/adt-bundle-mac/platform-tools
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-export ANDROID_SDK_ROOT=~/Library/Android/sdk/
-export ANDROID_HOME=~/Library/Android/sdk/
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk/
+export ANDROID_HOME=$HOME/Library/Android/sdk/
 
 #export PATH="$HOME/.rbenv/bin:$PATH"
 #if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -86,4 +86,4 @@ alias flushmemcache='echo 'flush_all' | nc localhost 11211'
 
 source $HOME/.rvm/scripts/rvm
 
-[ -f ~/.custom_bashrc ] && source ~/.custom_bashrc
+[ -f $HOME/.custom_bashrc ] && source $HOME/.custom_bashrc
