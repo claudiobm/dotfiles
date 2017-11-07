@@ -65,6 +65,7 @@ values."
      ruby-refactor
      multi-term
      crux
+     all-the-icons
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -326,6 +327,10 @@ you should place your code here."
   (add-hook 'prog-mode-hook 'turn-on-fci-mode)
   (add-hook 'text-mode-hook 'turn-on-fci-mode)
   (setq fci-rule-color "#606060")
+
+  ;; NeoTree
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  ;; M-x all-the-icons-install-fonts
 
   ;; Crux
   (crux-reopen-as-root-mode)
