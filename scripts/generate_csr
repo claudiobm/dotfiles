@@ -6,5 +6,4 @@
 domain=$1
 
 openssl req -new -newkey rsa:4096 -nodes -out ${domain}.csr \
-        -keyout ${domain}.key -subj
-        "/C=BR/ST=sp/L=br/O=my company /OU=ti/CN=${domain}"
+        -keyout ${domain}.key
