@@ -335,6 +335,9 @@ you should place your code here."
   ;; Crux
   (crux-reopen-as-root-mode)
 
+  ;; JS
+  (setq js-indent-level 2)
+
   ;; Ruby
   (require 'ruby-tools)
   (require 'ruby-refactor)
