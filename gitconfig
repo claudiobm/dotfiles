@@ -18,6 +18,7 @@
   pager = true
 [core]
 	excludesfile = "~/.gitignore_global"
+	editor = subl -n -w
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

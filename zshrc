@@ -56,6 +56,9 @@ export PATH=/src/local/:$HOME/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/
 PATH=$PATH:/usr/local/share/npm/bin
 PATH=$PATH:/usr/bin/adt-bundle-mac/tools
 PATH=$PATH:/usr/bin/adt-bundle-mac/platform-tools
+PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
+PATH=$PATH:$HOME/Library/Android/sdk/tools/bin
+PATH=$PATH:$HOME/.composer/vendor/bin
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk/
@@ -87,3 +90,6 @@ alias flushmemcache='echo 'flush_all' | nc localhost 11211'
 source $HOME/.rvm/scripts/rvm
 
 [ -f $HOME/.custom_bashrc ] && source $HOME/.custom_bashrc
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
