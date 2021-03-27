@@ -37,18 +37,18 @@ export LANGUAGE=pt_BR.UTF-8
 export LANG=pt_BR.UTF-8
 export LC_ALL=pt_BR.UTF-8
 
-#Improvement Ruby GC
-export RUBY_GC_HEAP_INIT_SLOTS=231105
-export RUBY_GC_HEAP_FREE_SLOTS=169813
-export RUBY_GC_HEAP_GROWTH_FACTOR=1.03
-export RUBY_GC_HEAP_GROWTH_MAX_SLOTS=15832
-export RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR=2.0
-export RUBY_GC_MALLOC_LIMIT=70000000
-export RUBY_GC_MALLOC_LIMIT_MAX=147000000
-export RUBY_GC_MALLOC_LIMIT_GROWTH_FACTOR=1.68
-export RUBY_GC_OLDMALLOC_LIMIT=66089858
-export RUBY_GC_OLDMALLOC_LIMIT_MAX=138788702
-export RUBY_GC_OLDMALLOC_LIMIT_GROWTH_FACTOR=1.4
+# #Improvement Ruby GC
+# export RUBY_GC_HEAP_INIT_SLOTS=231105
+# export RUBY_GC_HEAP_FREE_SLOTS=169813
+# export RUBY_GC_HEAP_GROWTH_FACTOR=1.03
+# export RUBY_GC_HEAP_GROWTH_MAX_SLOTS=15832
+# export RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR=2.0
+# export RUBY_GC_MALLOC_LIMIT=70000000
+# export RUBY_GC_MALLOC_LIMIT_MAX=147000000
+# export RUBY_GC_MALLOC_LIMIT_GROWTH_FACTOR=1.68
+# export RUBY_GC_OLDMALLOC_LIMIT=66089858
+# export RUBY_GC_OLDMALLOC_LIMIT_MAX=138788702
+# export RUBY_GC_OLDMALLOC_LIMIT_GROWTH_FACTOR=1.4
 
 # Customize to your needs...
 export PATH=/src/local/:$HOME/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/bin/android-sdk/tools:$HOME/bin
@@ -67,9 +67,6 @@ export ANDROID_HOME=$HOME/Library/Android/sdk/
 #export PATH="$HOME/.rbenv/bin:$PATH"
 #if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-alias subl='reattach-to-user-namespace subl'
-alias stree='reattach-to-user-namespace stree'
-alias open='reattach-to-user-namespace open'
 
 # PostgreSQL
 export PGHOST=/tmp
@@ -87,9 +84,19 @@ alias  lg= git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d
 alias mongostart='mongod --config /usr/local/etc/mongod.conf'
 alias flushmemcache='echo 'flush_all' | nc localhost 11211'
 
-source $HOME/.rvm/scripts/rvm
+[ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
 
 [ -f $HOME/.custom_bashrc ] && source $HOME/.custom_bashrc
 
+[ -x "$(command -v brew)" ] && source $(brew --prefix asdf)/asdf.sh
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+export PATH="$PATH:/Users/claudiobm/.dotnet/tools"
+
+#source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+#PS1='$(kube_ps1)'$PS1
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
