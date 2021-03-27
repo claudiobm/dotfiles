@@ -90,6 +90,11 @@ alias flushmemcache='echo 'flush_all' | nc localhost 11211'
 
 [ -x "$(command -v brew)" ] && source $(brew --prefix asdf)/asdf.sh
 
+
+[ -f $HOME/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
+[ -f $HOME/.asdf/completions/asdf.bash ] && . $HOME/.asdf/completions/asdf.bash
+
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 export PATH="/usr/local/opt/libpq/bin:$PATH"
