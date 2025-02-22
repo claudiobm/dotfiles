@@ -29,13 +29,14 @@ DISABLE_AUTO_UPDATE="false"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler brew gem ruby github rvm rails)
+plugins=(git bundler brew gem ruby github rvm rails zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
 export LANGUAGE=pt_BR.UTF-8
 export LANG=pt_BR.UTF-8
 export LC_ALL=pt_BR.UTF-8
+export DOCKER_CLI_EXPERIMENTAL=enabled
 
 # #Improvement Ruby GC
 # export RUBY_GC_HEAP_INIT_SLOTS=231105
@@ -58,11 +59,15 @@ PATH=$PATH:/usr/bin/adt-bundle-mac/tools
 PATH=$PATH:/usr/bin/adt-bundle-mac/platform-tools
 PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
 PATH=$PATH:$HOME/Library/Android/sdk/tools/bin
+PATH=$PATH:$HOME/Android/Sdk/platform-tools
+PATH=$PATH:$HOME/Android/Sdk/tools/bin
+PATH=$PATH:$HOME/Android/Sdk/cmdline-tools/latest/bin
 PATH=$PATH:$HOME/.composer/vendor/bin
+PATH=$PATH:/opt/mssql-tools/bin
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk/
-export ANDROID_HOME=$HOME/Library/Android/sdk/
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk/
+export ANDROID_HOME=$HOME/Android/Sdk/
 
 #export PATH="$HOME/.rbenv/bin:$PATH"
 #if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -80,6 +85,9 @@ alias en='translate {=us}'
 
 alias tree= git log --graph --pretty=oneline
 alias  lg= git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+alias gtl='gtl(){ git tag --sort=-v:refname -n -l "${1}*" }; noglob gtl'
+alias gdct='git describe --tags $(git rev-list --tags --max-count=1)'
 
 alias mongostart='mongod --config /usr/local/etc/mongod.conf'
 alias flushmemcache='echo 'flush_all' | nc localhost 11211'
@@ -102,6 +110,5 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 export PATH="$PATH:/Users/claudiobm/.dotnet/tools"
 
 #source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-#PS1='$(kube_ps1)'$PS1
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export FLUTTER_ROOT="$(asdf where flutter)"
